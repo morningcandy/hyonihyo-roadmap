@@ -222,6 +222,28 @@ section[open] > summary .chev{ transform:rotate(180deg); }
 .branch-item.done .btitle{ color:var(--text); }
 .branch-item .bdesc{ font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-top:2px; }
 .branch-foot{ margin-top:12px; font-size:11.5px; color:var(--text-muted); }
+.step-flow{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:4px 0 16px; }
+@media (max-width:860px){ .step-flow{ grid-template-columns:1fr 1fr; } }
+@media (max-width:480px){ .step-flow{ grid-template-columns:1fr; } }
+.step-box{ background:var(--surface-2); border:1px solid var(--border); border-radius:12px; padding:12px 14px; }
+.step-box .sn{ font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.06em; color:var(--accent-strong); }
+.step-box h4{ font-size:13px; margin:3px 0 4px; }
+.step-box p{ font-size:11.5px; color:var(--text-muted); margin:0; line-height:1.55; }
+.step-box.now{ background:var(--accent-soft); border-color:transparent; }
+.map-open{ color:var(--good); font-weight:600; }
+.map-none{ color:var(--warn); font-weight:600; }
+.lvl-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:4px; }
+@media (max-width:760px){ .lvl-grid{ grid-template-columns:1fr; } }
+.lvl-card{ border:1px solid var(--border); border-radius:12px; padding:14px 16px; background:var(--surface); }
+.lvl-card.now{ border-color:var(--accent); box-shadow:var(--shadow); }
+.lvl-head{ display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap; }
+.lvl-head h4{ font-size:13.5px; margin:0; }
+.lvl-when{ font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--text-muted); }
+.lvl-row{ display:flex; gap:8px; font-size:12px; padding:6px 0; border-top:1px dashed var(--border); }
+.lvl-row:first-of-type{ border-top:none; }
+.lvl-k{ flex:0 0 46px; font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--accent-strong); background:var(--accent-soft); border-radius:5px; padding:2px 0; text-align:center; height:-moz-fit-content; height:fit-content; }
+.lvl-v{ flex:1; color:var(--text-muted); line-height:1.6; }
+.lvl-v strong{ color:var(--text); font-weight:600; }
 
 /* summary stat grid */
 .stat-summary{ display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:22px; }
@@ -515,9 +537,97 @@ footer a{ color:var(--accent-strong); }
   </details>
 
   <details class="acc" id="license">
-    <summary><span class="section-num">03</span><h2>상담심리사 자격 조건</h2><span class="section-hint">한국상담심리학회 · 2급/1급</span><svg class="chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
+    <summary><span class="section-num">03</span><h2>상담심리사 자격 조건</h2><span class="section-hint">2급 중심 · 학차별 로드맵</span><svg class="chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
     <div class="section-body">
-    <p class="section-desc">석사과정 재학 중에는 2급 준비, 졸업 이후 경력을 쌓아 1급으로 이어지는 경로가 일반적입니다.</p>
+    <p class="section-desc">한국상담심리학회(krcpa) 상담심리사 <strong>2급</strong>은 시험 합격만으로 끝나지 않고 <strong>필수과목 이수 · 수련 실적 · 자격심사</strong>가 함께 요구됩니다. 재학 중에 수강과 수련을 같이 굴려야 졸업 직후 취득이 가능해요. 1급은 2급 취득이 사실상 전제이므로, 이 섹션은 2급 기준으로 정리했습니다.</p>
+
+    <div class="step-flow">
+      <div class="step-box now">
+        <div class="sn">STEP 1 · 지금</div>
+        <h4>준회원 가입 + 과목 이수</h4>
+        <p>학회 준회원 가입(회비 납부)이 수련 인정의 출발점. 가입 이전 활동은 실적으로 안 쳐줍니다.</p>
+      </div>
+      <div class="step-box">
+        <div class="sn">STEP 2 · 재학~졸업</div>
+        <h4>수련 실적 누적</h4>
+        <p>접수면접 · 개인상담 · 집단상담 · 심리평가 · 공개사례발표. 센터 실습이 이 실적을 만드는 통로예요.</p>
+      </div>
+      <div class="step-box">
+        <div class="sn">STEP 3</div>
+        <h4>자격시험(필기) 5과목</h4>
+        <p>과목당 40점 이상이면서 전체 평균 60점 이상이어야 합격.</p>
+      </div>
+      <div class="step-box">
+        <div class="sn">STEP 4</div>
+        <h4>자격심사 · 면접</h4>
+        <p>수련 실적 서류 심사 + 면접. 실적이 모자라면 시험에 붙어도 자격은 안 나옵니다.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>필기 5과목 ↔ 우리 학과 대응 과목</h3>
+      <p class="muted" style="margin-top:-4px;">시험은 5과목인데 조직상담학과에서 직접 대응되는 건 3과목이에요. <span class="map-none">발달심리학 · 학습심리학</span>은 학과 개설이 없어 청강이나 독학으로 메꿔야 합니다.</p>
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>시험과목</th><th>대응 과목</th><th>개설 여부</th><th>배치 제안</th></tr></thead>
+          <tbody>
+            <tr><td class="label">상담심리학</td><td>상담 및 심리치료이론</td><td class="map-open">기초공통 개설</td><td>1학차 수강 중 ✓</td></tr>
+            <tr><td class="label">이상심리학</td><td>이상심리</td><td class="map-open">기초공통 개설</td><td>1학차 수강 중 ✓</td></tr>
+            <tr><td class="label">심리검사</td><td>심리평가 <span class="muted">(+ 직업심리검사 및 실습)</span></td><td class="map-open">기초공통 개설</td><td><strong>2학차 최우선</strong></td></tr>
+            <tr><td class="label">발달심리학</td><td>발달심리학 <span class="muted">(아동상담학과)</span></td><td class="map-none">학과 개설 없음</td><td>3학차 청강 또는 독학</td></tr>
+            <tr><td class="label">학습심리학</td><td>학습심리학 <span class="muted">(심리학과 등)</span></td><td class="map-none">학과 개설 없음</td><td>독학 비중이 큼</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted" style="margin-bottom:0;">개설이 없는 두 과목은 시험 3~4개월 전부터 기본서 한 권씩 잡는 편이 현실적이에요. 나머지 3과목은 수업을 들을 때 시험 대비까지 같이 해두면 따로 공부할 양이 확 줄어듭니다.</p>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <h3>수련 요건 — 시험보다 이쪽이 오래 걸립니다</h3>
+      <ul class="checklist">
+        <li><strong>접수면접 20회 이상</strong> — 센터 실습(수련상담원)으로 채우는 것이 일반적</li>
+        <li><strong>개인상담 사례</strong> — 사례 수와 총 회기 수를 함께 봅니다. 수퍼비전 받은 사례가 별도로 요구되므로 지도받을 수 있는 기관에서 하는 것이 중요</li>
+        <li><strong>집단상담 2개 집단 · 총 30시간 이상</strong> — 조직상담학과엔 집단상담 과목이 없어 <span class="map-none">외부 집단이나 상담학과 과목</span>으로 채워야 함</li>
+        <li><strong>심리평가 10사례 이상</strong> — 심리평가 수강과 MMPI·TCI 등 검사 이수가 전제</li>
+        <li><strong>공개사례발표 참관 6사례 이상</strong> — 성의분회 가입이 선행 조건 (05번 섹션)</li>
+        <li><strong>학회 교육·연수 참여</strong> — 학술대회·워크숍 이수도 심사 항목</li>
+      </ul>
+      <p class="muted" style="margin-bottom:0;">핵심은 <strong style="color:var(--text);">준회원 가입 시점부터 누적</strong>된다는 점이에요. 가입이 늦어지면 그만큼 자격 취득 전체가 밀립니다.</p>
+    </div>
+
+    <h3 style="margin:22px 0 4px;">학차별 2급 로드맵</h3>
+    <p class="muted" style="margin:0 0 10px;">학기마다 <span class="mono">수강 · 수련 · 행정</span> 세 갈래를 같이 굴리는 그림이에요. 수강만 채우고 수련을 늦게 시작하면 졸업 후 시간이 더 걸립니다.</p>
+    <div class="lvl-grid">
+      <div class="lvl-card now">
+        <div class="lvl-head"><h4>1학차</h4><span class="lvl-when">2026-2 · 진행 중</span></div>
+        <div class="lvl-row"><span class="lvl-k">수강</span><span class="lvl-v"><strong>이상심리 · 상담및심리치료이론</strong> — 시험 5과목 중 2개를 이번 학기에 이미 확보. 심리통계·리더십코칭은 논자시·전공용.</span></div>
+        <div class="lvl-row"><span class="lvl-k">수련</span><span class="lvl-v">아직 실적 누적 단계는 아님. 대신 <strong>공개사례발표 참관</strong>을 10월부터 시작해 6사례 카운트를 열어두기.</span></div>
+        <div class="lvl-row"><span class="lvl-k">행정</span><span class="lvl-v"><strong>학회 준회원 가입 + 성의분회 가입</strong>이 이번 학기 최대 과제 (맨 위 체크카드).</span></div>
+      </div>
+
+      <div class="lvl-card">
+        <div class="lvl-head"><h4>2학차</h4><span class="lvl-when">2027-1</span></div>
+        <div class="lvl-row"><span class="lvl-k">수강</span><span class="lvl-v"><strong>심리평가</strong> 최우선 — 시험과목이면서 심리평가 10사례 수련의 전제. 상담연구법(논자시)·조직상담및실습·조직심리학 병행.</span></div>
+        <div class="lvl-row"><span class="lvl-k">수련</span><span class="lvl-v"><strong>상담센터 실습(수련상담원) 지원</strong> 시점. 접수면접·개인상담 실적이 여기서부터 쌓이기 시작합니다.</span></div>
+        <div class="lvl-row"><span class="lvl-k">행정</span><span class="lvl-v">MMPI·TCI 등 검사 워크숍 이수, 공개사례발표 참관 계속 누적.</span></div>
+      </div>
+
+      <div class="lvl-card">
+        <div class="lvl-head"><h4>3학차</h4><span class="lvl-when">2027-2</span></div>
+        <div class="lvl-row"><span class="lvl-k">수강</span><span class="lvl-v">졸업학점 마무리(코칭기법·직업심리검사·갈등관리·사례연구). 여유가 되면 <strong>집단상담·상담면접및실습</strong>을 초과학점으로 도전 — 수련 공백 메우기용.</span></div>
+        <div class="lvl-row"><span class="lvl-k">수련</span><span class="lvl-v">개인상담 사례와 수퍼비전 본격화. <strong>집단상담 30시간</strong>은 학과에 과목이 없으니 외부 집단을 이 시기에 찾아둘 것.</span></div>
+        <div class="lvl-row"><span class="lvl-k">행정</span><span class="lvl-v"><strong>논문제출자격시험 응시</strong>(3학기·12학점 요건 충족). 발달심리학 청강 가능 여부 확인.</span></div>
+      </div>
+
+      <div class="lvl-card">
+        <div class="lvl-head"><h4>4학차 &amp; 졸업 이후</h4><span class="lvl-when">2028-1 ~</span></div>
+        <div class="lvl-row"><span class="lvl-k">수강</span><span class="lvl-v">논문연구 학기. 시험 준비는 <strong>발달심리학·학습심리학</strong> 독학에 집중.</span></div>
+        <div class="lvl-row"><span class="lvl-k">수련</span><span class="lvl-v">부족한 항목(집단 시간·심리평가 사례 수) 정산. 졸업 후에도 수련은 계속 인정되므로 중단하지 않는 것이 핵심.</span></div>
+        <div class="lvl-row"><span class="lvl-k">행정</span><span class="lvl-v"><strong>자격시험 응시 → 자격심사·면접</strong>. 이후 실무 경력을 쌓아 1급으로 연결.</span></div>
+      </div>
+    </div>
+
+    <h3 style="margin:22px 0 6px;">2급 · 1급 비교</h3>
     <div class="tbl-wrap">
       <table>
         <thead><tr><th></th><th>상담심리사 2급</th><th>상담심리사 1급</th></tr></thead>
@@ -526,11 +636,6 @@ footer a{ color:var(--accent-strong); }
             <td class="label">응시 자격</td>
             <td>상담 관련 석사 재학 + 입학 후 1년 이상 경력, 또는 학사 + 2~3년 경력</td>
             <td>상담 관련 석사학위 취득 후 3년 이상 경력, 또는 2급 취득 후 4년 이상 경력</td>
-          </tr>
-          <tr>
-            <td class="label">필수 과목</td>
-            <td>상담 관련 4과목↑, 기초 1과목↑ (석사 기준)</td>
-            <td>2급 자격 및 수련 경력 인정</td>
           </tr>
           <tr>
             <td class="label">시험 과목</td>
@@ -543,14 +648,20 @@ footer a{ color:var(--accent-strong); }
           </tr>
           <tr>
             <td class="label">수련</td>
-            <td>접수면접 20회↑, 집단상담 2개 집단(각 15시간, 총 30시간)↑, 심리평가 10사례↑</td>
-            <td>학회 지정 수련기관에서 수련감독자 지도 하 개인상담·사례발표 등 장기 수련</td>
+            <td>접수면접 20회↑, 집단상담 2개 집단 30시간↑, 심리평가 10사례↑, 공개사례발표 참관 6사례↑</td>
+            <td>수련감독자 지도 하 장기 수련 + 본인 사례발표. 2급 이후 경력이 그대로 이어짐</td>
+          </tr>
+          <tr>
+            <td class="label">우리 학과 커버</td>
+            <td><span class="map-open">시험 3/5과목</span> — 집단상담·발달·학습은 외부 보완</td>
+            <td>성격심리학·심리통계 등 1급 대응 과목이 학과에 있어 장기적으로 유리</td>
           </tr>
         </tbody>
       </table>
     </div>
+
     <div class="callout" style="margin-top:14px;">
-      <strong>중요</strong> — 위 수치는 최근 공개 자료 기준 요약이며, 한국상담심리학회는 매년 세부 기준(수련 시간, 사례 수, 응시료, 준회원 가입 절차 등)을 개정합니다. 원서 접수 전 반드시 <a href="https://krcpa.or.kr" style="color:inherit;">krcpa.or.kr</a> 공식 공지에서 해당 연도 요강을 확인하세요. 대학원 재학 중 <span class="mono">준회원</span> 가입 및 수련시간 누적을 미리 시작해두면 졸업 후 자격 취득이 빨라집니다.
+      <strong>반드시 확인</strong> — 위 수련 시간·사례 수는 공개 자료 기준 요약입니다. 한국상담심리학회는 수련 항목·시간·응시료를 개정하므로, 준회원 가입 직후 <a href="https://krcpa.or.kr" style="color:inherit;">krcpa.or.kr</a>에서 <strong>해당 연도 자격규정 원문</strong>을 받아 본인 기준으로 다시 계산해두세요. 특히 개인상담 사례·회기 수는 해마다 달라진 이력이 있습니다.
     </div>
     </div>
   </details>
