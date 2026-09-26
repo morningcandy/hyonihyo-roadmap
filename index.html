@@ -75,6 +75,8 @@ body{
   line-height:1.7;
   font-size:15.5px;
   -webkit-font-smoothing:antialiased;
+  word-break:keep-all;
+  overflow-wrap:break-word;
 }
 h1,h2,h3{
   font-family:"Manrope","Noto Sans KR",sans-serif;
@@ -174,6 +176,24 @@ section[open] > summary .chev{ transform:rotate(180deg); }
 .section-desc{ color:var(--text-muted); font-size:14.5px; margin:0 0 22px; max-width:62ch; }
 .section-hint{ font-size:12px; color:var(--text-muted); font-family:"IBM Plex Mono",monospace; flex:0 0 auto; }
 
+/* attendance counter */
+.attend-card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:18px 20px; margin-bottom:28px; box-shadow:var(--shadow); }
+.attend-head{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:2px; }
+.attend-head h2{ font-size:15.5px; }
+.attend-count{ font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--text-muted); }
+.attend-count.done{ color:var(--good); font-weight:600; }
+.attend-sub{ font-size:12px; color:var(--text-muted); margin:0 0 12px; }
+.attend-grid{ display:grid; grid-template-columns:repeat(6,1fr); gap:8px; }
+@media (max-width:760px){ .attend-grid{ grid-template-columns:repeat(3,1fr); } }
+.attend-item{ display:flex; flex-direction:column; align-items:center; gap:4px; padding:10px 6px; border:1px solid var(--border); border-radius:10px; background:var(--surface-2); cursor:pointer; text-align:center; }
+.attend-item:hover{ border-color:var(--accent); }
+.attend-item.done{ background:var(--good-soft); border-color:transparent; }
+.attend-item .adate{ font-size:12.5px; font-weight:600; color:var(--text-muted); }
+.attend-item.done .adate{ color:var(--text); }
+.attend-item .acheck{ font-size:11px; color:var(--text-muted); }
+.attend-item.done .acheck{ color:var(--good); font-weight:600; }
+.attend-foot{ margin-top:12px; font-size:11.5px; color:var(--text-muted); }
+
 /* now dashboard (live) */
 .now-card{
   background:var(--surface);
@@ -205,23 +225,6 @@ section[open] > summary .chev{ transform:rotate(180deg); }
 .req-item.done .cname{ color:var(--text); }
 .req-item:not(.done) .cname{ color:var(--text-muted); }
 .req-all-done{ margin-top:14px; font-size:12.5px; color:var(--good); font-weight:600; }
-.branch-card{ background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:18px 20px; margin-bottom:28px; box-shadow:var(--shadow); }
-.branch-head{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:2px; }
-.branch-head h2{ font-size:15.5px; }
-.branch-count{ font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--text-muted); }
-.branch-count.done{ color:var(--good); font-weight:600; }
-.branch-sub{ font-size:12px; color:var(--text-muted); margin:0 0 12px; }
-.branch-steps{ display:grid; grid-template-columns:repeat(2,1fr); gap:8px 16px; }
-@media (max-width:760px){ .branch-steps{ grid-template-columns:1fr; } }
-.branch-item{ display:flex; align-items:flex-start; gap:9px; padding:8px 10px; border:1px solid var(--border); border-radius:10px; background:var(--surface-2); cursor:pointer; }
-.branch-item:hover{ border-color:var(--accent); }
-.branch-item .req-check{ margin-top:2px; }
-.branch-item.done{ background:var(--good-soft); border-color:transparent; }
-.branch-item.done .req-check{ background:var(--good); border-color:var(--good); color:#fff; }
-.branch-item .btitle{ font-size:13px; font-weight:600; color:var(--text-muted); }
-.branch-item.done .btitle{ color:var(--text); }
-.branch-item .bdesc{ font-size:11.5px; color:var(--text-muted); line-height:1.5; margin-top:2px; }
-.branch-foot{ margin-top:12px; font-size:11.5px; color:var(--text-muted); }
 .step-flow{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:4px 0 16px; }
 @media (max-width:860px){ .step-flow{ grid-template-columns:1fr 1fr; } }
 @media (max-width:480px){ .step-flow{ grid-template-columns:1fr; } }
@@ -459,7 +462,7 @@ footer a{ color:var(--accent-strong); }
     </div>
   </header>
 
-  <div id="branchCard" class="branch-card"></div>
+  <div id="attendCard" class="attend-card"></div>
 
   <div class="now-card">
     <div class="now-head">
@@ -940,13 +943,6 @@ footer a{ color:var(--accent-strong); }
     {title:"상담센터 실습 지원 필수", codes:["C1","C3"], note:"이 외에 상담면접및실습·상담자윤리(타학과 확인 필요), MMPI·TCI 이수, 성의분회 공개사례발표 6회 이상 참관도 필요해요"}
   ];
 
-  var BRANCH_STEPS = [
-    {id:"b1", title:"STEP 1 · 한국상담심리학회 준회원 가입", desc:"재학증명서 제출 + 회비 입금까지 완료"},
-    {id:"b2", title:"STEP 2 · 수련관리시스템 \"가온\" 회원가입", desc:"가입 직후엔 승인대기 상태(로그인 불가)가 정상"},
-    {id:"b3", title:"STEP 3 · 가입신청서 PDF 메일 발송", desc:"서명 후 ta-2022@naver.com으로 발송 (직접제출 불가)"},
-    {id:"b4", title:"STEP 4 · 조교 승인 · 초대메일 수신", desc:"비밀번호 설정 후 로그인되면 가입 완료"}
-  ];
-
   var STORE_KEY = "counsel-tracker-v1";
 
   function loadState(){
@@ -973,8 +969,24 @@ footer a{ color:var(--accent-strong); }
     try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){}
   }
 
+  var ATTEND_DATES = [
+    {id:"a1", label:"9/5(토)"},
+    {id:"a2", label:"9/19(토)"},
+    {id:"a3", label:"10/2(금)"},
+    {id:"a4", label:"10/17(토)"},
+    {id:"a5", label:"11/7(토)"},
+    {id:"a6", label:"11/21(토)"},
+    {id:"a7", label:"12/5(토)"},
+    {id:"a8", label:"12/18(금)"},
+    {id:"a9", label:"1/2(토)"},
+    {id:"a10", label:"1/16(토)"},
+    {id:"a11", label:"2/5(금)"},
+    {id:"a12", label:"2/20(토)"}
+  ];
+  var ATTEND_GOAL = 6;
+
   var state = loadState();
-  if(!state.branch) state.branch = {};
+  if(!state.attend) state.attend = {a3:true};
 
   function findCourse(code){
     for(var k=0;k<CAT_KEYS.length;k++){
@@ -1277,39 +1289,36 @@ footer a{ color:var(--accent-strong); }
     host.appendChild(card);
   }
 
-  function renderBranch(){
-    var host = document.getElementById("branchCard");
+  function renderAttend(){
+    var host = document.getElementById("attendCard");
     if(!host) return;
     host.innerHTML = "";
     var done = 0;
-    BRANCH_STEPS.forEach(function(st){ if(state.branch[st.id]) done++; });
-    var all = done === BRANCH_STEPS.length;
+    ATTEND_DATES.forEach(function(d){ if(state.attend[d.id]) done++; });
+    var all = done >= ATTEND_GOAL;
 
-    var head = el("div", {class:"branch-head"}, [
-      el("h2", {}, [txt("성의분회 가입 상태")]),
-      el("span", {class:"branch-count"+(all?" done":"")}, [txt(all ? "✓ 가입 완료" : done+"/"+BRANCH_STEPS.length+" 단계 완료")])
+    var head = el("div", {class:"attend-head"}, [
+      el("h2", {}, [txt("공개사례발표 참관 카운트")]),
+      el("span", {class:"attend-count"+(all?" done":"")}, [txt(done+"/"+ATTEND_GOAL+" 사례"+(all?" ✓ 요건 충족":""))])
     ]);
     host.appendChild(head);
-    host.appendChild(el("p", {class:"branch-sub"}, [txt("상담심리사 2급 자격증도, 상담센터 실습 지원도 성의분회 가입이 먼저예요. 끝낸 단계를 눌러서 체크해두세요 — 이 브라우저에 저장됩니다.")]));
+    host.appendChild(el("p", {class:"attend-sub"}, [txt("2026-2학기 일정(격주 토요일, 간혹 금요일) 기준. 신청·참관한 날짜를 눌러서 체크해두면 6사례 요건까지 자동으로 세어줘요 — 이 브라우저에 저장됩니다.")]));
 
-    var steps = el("div", {class:"branch-steps"});
-    BRANCH_STEPS.forEach(function(st){
-      var isDone = !!state.branch[st.id];
-      steps.appendChild(el("div", {
-        class:"branch-item"+(isDone?" done":""),
-        onclick:function(){ state.branch[st.id] = !state.branch[st.id]; saveState(); renderBranch(); }
+    var grid = el("div", {class:"attend-grid"});
+    ATTEND_DATES.forEach(function(d){
+      var isDone = !!state.attend[d.id];
+      grid.appendChild(el("div", {
+        class:"attend-item"+(isDone?" done":""),
+        onclick:function(){ state.attend[d.id] = !state.attend[d.id]; saveState(); renderAttend(); }
       }, [
-        el("span", {class:"req-check"}, [txt(isDone?"✓":"")]),
-        el("div", {}, [
-          el("div", {class:"btitle"}, [txt(st.title)]),
-          el("div", {class:"bdesc"}, [txt(st.desc)])
-        ])
+        el("div", {class:"adate"}, [txt(d.label)]),
+        el("div", {class:"acheck"}, [txt(isDone?"✓ 참관":"미정")])
       ]));
     });
-    host.appendChild(steps);
-    host.appendChild(el("div", {class:"branch-foot"}, [txt(all
-      ? "가입 완료 — 이제 공개사례발표 참관(6사례 이상) 기록을 쌓아가면 돼요. 자세한 절차는 아래 05번 섹션 참고."
-      : "각 단계의 상세 절차·제출처는 아래 05번 \"성의분회 가입 & 공개사례발표\" 섹션에 정리해뒀어요.")]));
+    host.appendChild(grid);
+    host.appendChild(el("div", {class:"attend-foot"}, [txt(all
+      ? "6사례 이상 확보 — 상담센터 실습 지원의 참관 요건은 충족했어요."
+      : "실습 지원엔 6사례 이상 참관이 필요해요(05번 섹션 참고). 남은 "+(ATTEND_GOAL-done)+"회를 채워보세요.")]));
   }
 
   function renderAudit(){
@@ -1336,7 +1345,7 @@ footer a{ color:var(--accent-strong); }
   }
 
   function renderAll(){
-    renderBranch();
+    renderAttend();
     renderMode();
     renderRequirements();
     renderSummary();
