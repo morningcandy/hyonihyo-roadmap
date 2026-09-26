@@ -182,6 +182,8 @@ section[open] > summary .chev{ transform:rotate(180deg); }
 .attend-head h2{ font-size:15.5px; }
 .attend-count{ font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--text-muted); }
 .attend-count.done{ color:var(--good); font-weight:600; }
+.attend-link{ margin-left:auto; font-size:12.5px; font-weight:600; color:var(--accent-strong); text-decoration:none; padding:5px 12px; border-radius:999px; background:var(--accent-soft); border:1px solid var(--border); white-space:nowrap; }
+.attend-link:hover{ border-color:var(--accent); }
 .attend-sub{ font-size:12px; color:var(--text-muted); margin:0 0 12px; }
 .attend-grid{ display:grid; grid-template-columns:repeat(6,1fr); gap:8px; }
 @media (max-width:760px){ .attend-grid{ grid-template-columns:repeat(3,1fr); } }
@@ -488,16 +490,16 @@ footer a{ color:var(--accent-strong); }
   <details class="acc" id="grad">
     <summary><span class="section-num">01</span><h2>대학원 졸업요건</h2><span class="section-hint">이수학점 · 논자시</span><svg class="chev" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></summary>
     <div class="section-body">
-    <p class="section-desc">조직상담학과 커리큘럼 페이지 기준(2024학년도 1학기 공지 기준 — 학기마다 세부 학점 배분이 조정될 수 있어 매 학기 초 학과 사무실에 재확인 권장).</p>
+    <p class="section-desc">조직상담학과 <a href="https://gcounseling.catholic.ac.kr/gcounseling/course/curriculum-major.do" style="color:inherit;">교육과정 페이지</a>·<a href="https://gcounseling.catholic.ac.kr/gcounseling/course/academic-system.do" style="color:inherit;">학사제도 페이지</a> 기준으로 2026-2학기 재확인 완료(교육과정 페이지 자체 표기는 "2024학년도 1학기 기준"이지만 과목·학점 체계는 그대로 유지되고 있어요 — 세부 학점 배분이 조정될 수 있으니 매 학기 초 학과 사무실에 재확인 권장).</p>
 
     <div class="grid-2">
       <div class="card">
         <h3>이수학점</h3>
         <p><span class="mono">논문과정 — 총 24학점 이상</span></p>
         <p><span class="mono">비논문과정 — 총 30학점 이상</span></p>
-        <p class="muted">기초공통 6(심리통계 + 상담연구법·연구방법론 중 택1 + 나머지 1과목) + 전공기초 6 + 전공선택 6 = 18학점이 필수이고, 나머지는 자유 선택으로 채워 24(논문)/30(비논문)을 맞추는 구조예요. <strong style="color:var(--text);">평점평균 3.0 이상</strong>도 학위 취득 요건이라 학점뿐 아니라 성적 관리도 함께 신경 써야 해요.</p>
-        <p class="muted">학기당 원칙은 6학점이고, <strong style="color:var(--text);">2학기(가을학기)에 한해</strong> 8학점(1과목 추가)까지 신청 가능하다는 학생 공유 정보가 있어요 — 학과 공지 문서상 표현과 차이가 있을 수 있어 수강신청 전 재확인 권장.</p>
-        <p class="muted"><strong style="color:var(--text);">초과학점(트리니티) — </strong>정규 학기 신청과 별도로 "트리니티" 추가이수 제도를 재학 중 2회, 학기당 2학점(총 4학점)까지 신청할 수 있다는 정보가 있어요(수강변경 기간에 신청, 인원 마감 시 불가). 24(논문)/30(비논문) + 트리니티 4학점 = 최대 28/34학점까지 늘어나는 셈이라, 상담학과 등 타학과 전공 과목에 도전해볼 여유가 될 수 있어요 — 실제 신청 방법·인정 여부는 학과 확인 필요.</p>
+        <p class="muted">기초공통·전공기초·전공선택 각 6학점(3과목) 이상이 필수이고, 나머지는 자유 선택으로 채워 24(논문)/30(비논문)을 맞추는 구조예요. <strong style="color:var(--text);">총 평점평균 3.0 이상</strong>도 학위 취득 요건이에요(학과 <a href="https://gcounseling.catholic.ac.kr/gcounseling/course/academic-system.do" style="color:inherit;">학사제도</a> 공식 확인) — 학점뿐 아니라 성적 관리도 함께 신경 써야 해요.</p>
+        <p class="muted">학과 <a href="https://gcounseling.catholic.ac.kr/gcounseling/course/curriculum-major.do" style="color:inherit;">교육과정 페이지</a> 유의사항 기준 — 1개 학기당 취득학점은 6학점 이내이되, <strong style="color:var(--text);">재학 중 2개 학기에 한해</strong> 학기당 2학점(1과목) 추가 이수(즉 8학점)가 가능해요. 특정 학기(가을학기 등)로 정해진 게 아니라 재학 기간 전체에서 2번 쓸 수 있는 예외예요.</p>
+        <p class="muted"><strong style="color:var(--text);">초과학점(트리니티) — </strong>위 6+2제도와는 별개로, "트리니티" 추가이수 제도를 재학 중 2회·학기당 2학점(총 4학점)까지 신청할 수 있다는 학생 공유 정보가 있어요(수강변경 기간에 신청, 인원 마감 시 불가). 이게 졸업 필수학점(24/30) 자체를 늘려주는 건 아니지만, 상담학과 등 타학과 전공 과목을 추가로 들어보고 싶을 때 활용할 수 있는 제도라고 해요 — 정확한 명칭·신청 방법·인정 여부는 학과 확인 필요.</p>
         <p class="muted"><strong style="color:var(--text);">논문연구Ⅰ·Ⅱ</strong>는 명목상 과목이라 위 최소이수학점(24/30)에는 포함되지 않아요.</p>
       </div>
       <div class="card">
@@ -513,16 +515,15 @@ footer a{ color:var(--accent-strong); }
     <div class="card" style="margin-top:14px;">
       <h3>논문제출자격시험 (논자시)</h3>
       <p><strong>응시자격</strong> — 3개 학기 이상 등록 + 12학점 이상 취득한 논문과정 선택자.</p>
-      <p><strong>시험과목</strong> — 필수(통계 및 상담연구법) + 조직상담학과 선택과목(사회심리학·조직심리학·직업스트레스상담·직업심리검사및실습 중 택1)이라는 학생 공유 정보가 있어요 — 학과 공지로 최종 확인 필요.</p>
-      <p class="muted">과목별 70점 이상이어야 합격이고, 불합격 시 다음 학기에 그 과목만 재응시 가능. 논문계획서도 함께 제출해야 해요. 3~4개월 전부터 3년 이내 기출(족보)로 준비하고 방학 중 스터디를 구성하는 걸 추천해요 — 학생 공유 정보 기준 매년 9월 초 실시.</p>
-      <p class="muted">신청 시기·응시료·양식은 학기마다 공지되므로, 3학차 진입 직전 학기에 학과 홈페이지 공지사항을 확인해 신청 기간을 놓치지 않는 것이 중요합니다.</p>
+      <p><strong>시험과목</strong> — 공통필수(통계 및 상담연구법) + 조직상담학과 선택과목(사회심리학·조직심리학·직업스트레스상담·직업심리검사및실습 중 택1). 처음 응시하는 사람은 두 과목 모두 응시해야 해요. <span class="mono" style="font-size:11px;">(2026학년도 2학기 논자시 공지 확인)</span></p>
+      <p class="muted">과목별 70점 이상이어야 합격이고, 불합격 시 다음 학기에 그 과목만 재응시 가능(재응시자는 1과목만 접수). 응시료는 20,000원(과목당 10,000원). 시험 일정·접수 기간은 학기마다 달라져요 — 2026학년도 2학기는 접수 9/14~9/18, 시험은 10/23(금) 19:00~21:00(과목당 60분)이었어요. 3~4개월 전부터 기출로 준비하고 방학 중 스터디를 구성하는 걸 추천해요.</p>
+      <p class="muted">신청 시기·응시료·양식은 학기마다 공지되므로, 3학차 진입 직전 학기에 학과 <a href="https://gcounseling.catholic.ac.kr/gcounseling/community/notice.do" style="color:inherit;">공지사항</a>을 확인해 신청 기간을 놓치지 않는 것이 중요합니다.</p>
     </div>
 
     <div class="card" style="margin-top:14px;">
       <h3>학위인정시험 (비논문과정을 택할 경우)</h3>
-      <p><strong>응시자격</strong> — 4개 학기 이상 등록 + 18학점 이상 취득.</p>
-      <p><strong>시험과목</strong> — 사회심리학·직업스트레스상담 중 택1 + 조직심리학·직업심리검사및실습 중 택1이라는 학생 공유 정보가 있어요 — 학과 공지로 최종 확인 필요.</p>
-      <p class="muted">과목별 70점 이상 합격, 불합격 시 다음 학기 재응시. 학생 공유 정보 기준 매년 10월 말 실시. 비논문은 과목을 여유 있게 들을 수 있는 대신, 나중에 1급을 준비한다면 논문을 별도로 써야 해요.</p>
+      <p><strong>응시자격</strong> — 4학차 이상 재학생. 공식 학사제도 기준 시험과목은 "전공 2개 과목 선택"이며, 학생 공유 정보로는 조직상담학과의 경우 사회심리학·직업스트레스상담 중 택1 + 조직심리학·직업심리검사및실습 중 택1로 안내된 적이 있어요 — 응시 학기 공지로 최종 확인 필요.</p>
+      <p class="muted">과목별 70점 이상 합격, 불합격 시 다음 학기 재응시. 비논문은 과목을 여유 있게 들을 수 있는 대신, 5학차엔 수료학점(24학점 상당) 이외에 반드시 추가 6학점을 이수해야 총 30학점을 채울 수 있고, 나중에 1급을 준비한다면 논문을 별도로 써야 해요.</p>
     </div>
     </div>
   </details>
@@ -535,11 +536,12 @@ footer a{ color:var(--accent-strong); }
       <table>
         <thead><tr><th>단계</th><th>내용</th><th>선행조건</th></tr></thead>
         <tbody>
-          <tr><td class="label">지도교수 승인·변경</td><td>입학 때 배정된 학사지도교수(연구관심사에 맞춰 상담 후 확정)와 계속할지, 논문 지도교수로 변경할지 신청</td><td>3학차 신청 시점이라는 학생 공유 정보(학과 확인 필요)</td></tr>
-          <tr><td class="label">논문제출자격시험</td><td>통계·연구방법론 + 학과 선택과목 합격, 논문계획서 제출</td><td>3학차, 12학점↑</td></tr>
+          <tr><td class="label">지도교수 승인신청</td><td>공식 학사제도 기준 3차 학기(학기초 3월·9월)에 신청. 입학 때 배정된 학사지도교수가 그대로 논문지도교수로 이어지는 게 통상적이며, 다른 교수를 원하면 학사지도교수·희망 지도교수 승인을 직접 구한 뒤 "논문지도교수 승인신청서"를 지도교수·본인 서명 받아 교학팀에 방문 제출</td><td>3학차 학기초</td></tr>
+          <tr><td class="label">논문제출자격시험</td><td>통계·연구방법론 + 학과 선택과목 합격, 응시료 20,000원(과목당 10,000원)</td><td>3학차, 12학점↑</td></tr>
           <tr><td class="label">연구계획서(프로포절) 심사</td><td>논문 주제·설계에 대한 계획서 발표 및 심사 — 탈락 시 다음 학기 재심사</td><td>논자시 합격 후, 4학차</td></tr>
-          <tr><td class="label">본심사(논문심사)</td><td>심사위원 3인 내외 앞에서 최종 논문 심사 및 수정</td><td>계획서 통과 + 자료수집·분석 완료</td></tr>
-          <tr><td class="label">학위논문 제출</td><td>제출신청서·예비심사용논문·본심사용논문·학위청구 논문 인준본 모두 제출 → 도서관 등록</td><td>5학차, 프로포절 통과 후</td></tr>
+          <tr><td class="label">논문제출신청서 제출</td><td>5학차 이상 + 프로포절 통과자 대상. 「논문제출 신청서」+「지도교수 추천서」(지도교수 서명 필수)를 교학팀에 방문 제출, 논문심사비 100,000원 납부</td><td>5학차, 프로포절 통과 후</td></tr>
+          <tr><td class="label">예비심사 → 본심사</td><td>예비심사용 논문 3부 제출 → 예비심사 → 본심사용 논문 3부 제출 → 본심사. 심사위원 3인 내외 앞에서 논문 심사 및 수정</td><td>논문제출신청서 접수 후 순차 진행</td></tr>
+          <tr><td class="label">학위청구논문 인준본 제출</td><td>정해진 규격·양식(학위청구논문체계) 준수해 인준본 제출 → 도서관 등록 후 졸업</td><td>본심사 통과</td></tr>
         </tbody>
       </table>
     </div>
@@ -896,7 +898,10 @@ footer a{ color:var(--accent-strong); }
   <footer>
     과목·학점 정보는 <a href="https://gcounseling.catholic.ac.kr/gcounseling/course/curriculum-major.do">조직상담학과 교육과정</a> 기준. 요일/시간은 실제 강의계획서(2026-2)와 <a href="https://catholic-counsel.notion.site/c931e2f757324bd0a44d239cfb91e4ba">학생 공유 개설과목 트래커</a>를 참고했으며, 아직 개설되지 않은 학기의 과목은 지난 학기 사례 기반 <strong>기본값</strong>이니 수강신청 전 <a href="https://uportal.catholic.ac.kr/stw/gscr/sgco/sgcoLessonPlanInq.do">강의계획서 조회 시스템</a>에서 확정하고 위 대시보드에서 직접 수정하세요.
     <br>
-    출처 — <a href="https://gcounseling.catholic.ac.kr/gcounseling/community/notice.do?mode=view&articleNo=122309">논문제출자격시험 공지</a>,
+    출처 — <a href="https://gcounseling.catholic.ac.kr/gcounseling/course/academic-system.do">학사제도</a>·<a href="https://gcounseling.catholic.ac.kr/gcounseling/course/curriculum-major.do">학과별 교육과정</a>(가톨릭대 상담심리대학원 공식 페이지),
+    <a href="https://gcounseling.catholic.ac.kr/gcounseling/community/notice.do?mode=view&articleNo=275608">2026학년도 2학기 논문제출자격시험 응시 신청 안내</a>,
+    <a href="https://gcounseling.catholic.ac.kr/gcounseling/community/notice.do?mode=view&articleNo=275218">2026-2학기 논문지도교수 승인 및 변경 신청 안내</a>,
+    <a href="https://gcounseling.catholic.ac.kr/gcounseling/community/notice.do?mode=view&articleNo=275570">2026학년도 2학기 논문제출신청서 제출 안내</a>,
     <a href="https://krcpa.or.kr">한국상담심리학회(krcpa.or.kr)</a>,
     <a href="https://www.koreanpsychology.or.kr/psychology/license.html">한국심리학회 자격증 안내</a>,
     학생 배포 자료(성의분회 2026년 2학기 신입생 OT 안내).
@@ -1320,7 +1325,8 @@ footer a{ color:var(--accent-strong); }
 
     var head = el("div", {class:"attend-head"}, [
       el("h2", {}, [txt("공개사례발표 참관 카운트")]),
-      el("span", {class:"attend-count"+(all?" done":"")}, [txt(done+"/"+ATTEND_GOAL+" 사례"+(all?" ✓ 요건 충족":""))])
+      el("span", {class:"attend-count"+(all?" done":"")}, [txt(done+"/"+ATTEND_GOAL+" 사례"+(all?" ✓ 요건 충족":""))]),
+      el("a", {class:"attend-link", href:"https://ca-on.kr/login", target:"_blank", rel:"noopener"}, [txt("가온(참관 신청) 바로가기 ↗")])
     ]);
     host.appendChild(head);
     host.appendChild(el("p", {class:"attend-sub"}, [txt("2026-2학기 일정(격주 토요일, 간혹 금요일) 기준. 신청·참관한 날짜를 눌러서 체크해두면 6사례 요건까지 자동으로 세어줘요 — 이 브라우저에 저장됩니다.")]));
